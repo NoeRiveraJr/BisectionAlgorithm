@@ -1,0 +1,6 @@
+C:\Users\imodc\OneDrive\Desktop\Projects\C#\BisectionAlgorithm\GuessMyNumber\obj\Debug\GuessMyNumber.csprojAssemblyReference.cache
+C:\Users\imodc\OneDrive\Desktop\Projects\C#\BisectionAlgorithm\GuessMyNumber\bin\Debug\GuessMyNumber.exe.config
+C:\Users\imodc\OneDrive\Desktop\Projects\C#\BisectionAlgorithm\GuessMyNumber\bin\Debug\GuessMyNumber.exe
+C:\Users\imodc\OneDrive\Desktop\Projects\C#\BisectionAlgorithm\GuessMyNumber\bin\Debug\GuessMyNumber.pdb
+C:\Users\imodc\OneDrive\Desktop\Projects\C#\BisectionAlgorithm\GuessMyNumber\obj\Debug\GuessMyNumber.exe
+C:\Users\imodc\OneDrive\Desktop\Projects\C#\BisectionAlgorithm\GuessMyNumber\obj\Debug\GuessMyNumber.pdb
