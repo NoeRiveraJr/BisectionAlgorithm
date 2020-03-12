@@ -15,7 +15,7 @@ namespace GuessMyNumber
         public bool foundGuess = false;
         public int numOfGuesses;
 
-        public HumanGuess(int computerChoice)
+        public HumanGuess(int computerChoice) //constructor populates the numbers 1 - 1000 into the list
         {
             this.computerNumber = computerChoice;
             for(int i = 1; i < 1001;i++)
@@ -25,7 +25,7 @@ namespace GuessMyNumber
             this.length = this.newList.Count;
         }
 
-        public string guessComputerChoice(int guess)
+        public string guessComputerChoice(int guess)  //this method removes a range of numbers depending on whether the user's guess is greater than or less than the randomly generated program choice of number
         {
             string check = "";
             if (guess == this.computerNumber)

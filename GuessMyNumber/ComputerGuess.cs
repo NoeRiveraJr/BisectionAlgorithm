@@ -8,7 +8,7 @@ namespace GuessMyNumber
 {
     class ComputerGuess
     {
-        public int humanNumber;
+        public int humanNumber;  //main differece in these fields is that a variable is used to store the user's choice between 1 - 1000
         public int computerGuess;
         public List<int> newList = new List<int>();
         public int length;
@@ -16,7 +16,7 @@ namespace GuessMyNumber
         public bool foundGuess = false;
         public int numOfGuesses;
 
-        public ComputerGuess()
+        public ComputerGuess() //constructor adds numbers 1 - 1000 to the list, and sets the programs guess to median of the range of numbers(bisection algorithm)
         {
             for (int i = 1; i < 1001; i++)
             {
@@ -25,11 +25,11 @@ namespace GuessMyNumber
             this.length = this.newList.Count;
             this.computerGuess = this.newList[this.length/2];
         }
-        public void setHumanChoice(int humanChoice)
+        public void setHumanChoice(int humanChoice)  //sets the user's choice of 1 - 1000 to the field. I should've used a property for this instead.
         {
             this.humanNumber = humanChoice;
         }
-        public string findHumanChoice(int nextMove)
+        public string findHumanChoice(int nextMove)  //this method uses a switch to remove the portion of the list that the user's choice is not on.
         {
             switch (nextMove)
             {

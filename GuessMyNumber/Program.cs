@@ -10,11 +10,11 @@ namespace GuessMyNumber
     {
         static void Main(string[] args)
         {
-            int[] list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, };
+            int[] list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, };  //first portion of the program creates an array from 1 - 10. Shows how the computer iterates through a set of numbers
             BisectionAlgorithmIntro intro = new BisectionAlgorithmIntro(list);
             string intro1 = ("Hi, it's me, your computer! This program will determine if you can guess a number faster than me!\n");
             string intro2 = "To demonstrate how this is going to work, first, you will choose a number from 1 - 10, and you will see how many\ntries it takes for me to guess your number!";
-            printString(intro1);
+            printString(intro1);  //calls the printString method that I created to simulate the computer typing to you.
             printString(intro2);
             Console.ReadKey();
             Console.Clear();
@@ -25,12 +25,12 @@ namespace GuessMyNumber
 
             int x;
             string check = Console.ReadLine();
-            while (Int32.TryParse(check, out x) == false || x < 1 || x > 10)
+            while (Int32.TryParse(check, out x) == false || x < 1 || x > 10)    //data validation 
             {
                 Console.Write("Please enter a valid number from 1 - 10: ");
                 check = Console.ReadLine();
             }
-            while (intro.foundGuess == false)
+            while (intro.foundGuess == false)  //foundGuess is a field in all my classes that is used to create recursion with a while loop.
             {
                 intro.getRanNumber(x);
                 printString(intro.checking);
@@ -43,7 +43,7 @@ namespace GuessMyNumber
                 else
                 {
                     printString($"The number of guesses it took me to find your number was: {intro.numOfGuesses}.\n");
-                    printString("Yaaaaawwwn! If I had feelings, I'd be bored! Lets make things more interesting.");
+                    printString("Yaaaaawwwn! If I had feelings, I'd be bored! Lets make things more interesting.");  //the computer is supposed to be funny and sarcastic
                     intro.numOfGuesses = 0;
                 }
             }
@@ -53,14 +53,14 @@ namespace GuessMyNumber
 
 
 
-            //Beginning of the Human Trial protion of the program
+            //Beginning of the Human Trial protion of the program, this trial is ran 3 times to get an average of human guesses
             string humanIntro = "Now you will face me to see who can guess a number faster!\nYou will be guessing a number that I choose from 1 - 1000.\n" +
                 "You will be doing this 3 times to get an average number of guesses it takes for you to find my number!\n";
             printString(humanIntro);
             Console.ReadKey();
             Console.Clear();
 
-            Random computerChoice = new Random();
+            Random computerChoice = new Random();     //the computer will select a random number from 1 - 100, the user gets to guess that number
             int computerNumber = computerChoice.Next(1, 1001);
             HumanGuess human = new HumanGuess(computerNumber);
             string check2;
@@ -71,7 +71,7 @@ namespace GuessMyNumber
             while (human.foundGuess == false)
             {
                 Console.Write($"Please enter guess from {human.newList[0]} - {human.newList[human.length - 1]}: ");
-                check2 = Console.ReadLine();
+                check2 = Console.ReadLine();       //the list keeps getting shorter as the user guesses a number, thus the data validation needs to change values as program iterates through
                 while (Int32.TryParse(check2, out y) == false || y < (human.newList[0]) || y > (human.newList[human.length - 1]))
                 {
                     Console.Write($"Please enter a valid number from {human.newList[0]} - {human.newList[human.length - 1]}: ");
@@ -142,12 +142,12 @@ namespace GuessMyNumber
             }
             Console.ReadKey();
             Console.Clear();
-            avgOfHumanGuesses = sumOfHumanGuesses / 3;
+            avgOfHumanGuesses = sumOfHumanGuesses / 3;  //this portion calculates the average for the number of guesses it took the user to find answer
             printString($"Your average number of guesses is..... {avgOfHumanGuesses}. A very unspectacular number friend!\n");
 
 
 
-            //beginning of the computer trial portion
+            //beginning of the computer trial portion, once again, it will be conducted 3 times to get an average
             printString("Now it is my turn to guess your number...I'm sure I'll beat you!\n");
             printString("Please enter a number from 1 - 1000 and I will try to guess your number! I have my eyes closed \nand I promise not to cheat friend.");
             string check3 = Console.ReadLine();
@@ -156,7 +156,7 @@ namespace GuessMyNumber
             int caseSwitch;
             int sumOfComputerGuesses = 0;
             int avgOfComputerGuesses = 0;
-            while (Int32.TryParse(check3, out z) == false || z <= 0 || z >= 1001)
+            while (Int32.TryParse(check3, out z) == false || z <= 0 || z >= 1001)  //user inputs a validated number from 1 - 1000 to begin
             {
                 Console.Write($"Please enter a valid number from 1 - 1000: ");
                 check3 = Console.ReadLine();
@@ -166,7 +166,7 @@ namespace GuessMyNumber
             ComputerGuess computer = new ComputerGuess();
             computer.setHumanChoice(z);
             while (computer.foundGuess == false)
-            {
+            {                     //user needs to tell program that the programs guess is greater than, less than, or equal to the programs guess
                 Console.WriteLine($"My guess is {computer.computerGuess}. Please tell me whether my guess is greater than your number, less than your number, or is your number.");
                 Console.Write("1. Greater than your number.\n2. Less than your number\n3. This is your number! :)\n");
                 checkCase = Console.ReadLine();
@@ -178,7 +178,7 @@ namespace GuessMyNumber
                 switch (caseSwitch)
                 {
                     case 1:
-                        if (computer.newList[computer.length / 2] <= computer.humanNumber)
+                        if (computer.newList[computer.length / 2] <= computer.humanNumber)  //every case validates that the user did not lie 
                         {
                             Console.Clear();
                             printString("Unlike humans, computers cannot lie...Something tells me you made the wrong choice! Lets try again!");
@@ -321,7 +321,7 @@ namespace GuessMyNumber
             Console.ReadKey();
             Console.Clear();
 
-
+            //last computer guess
             printString("Let's try that one last time and compare our results to one another!\n");
             printString("Please enter a number from 1 - 1000 and I will try to guess your number! I have my eyes closed \nand I promise not to cheat friend.");
             string check5 = Console.ReadLine();
@@ -405,7 +405,7 @@ namespace GuessMyNumber
             Console.ReadKey();
             Console.Clear();
 
-            avgOfComputerGuesses = sumOfComputerGuesses / 3;
+            avgOfComputerGuesses = sumOfComputerGuesses / 3;    //last portion of the program, both averages are compared and the final results are displayed to the user
             printString($"Let's check the results of this guessing game!\n");
             printString($"Your average number of guesses to find my number was: {avgOfHumanGuesses}.\n");
             printString($"My average number of guesses to find your number was: {avgOfComputerGuesses}.\n");
@@ -427,7 +427,7 @@ namespace GuessMyNumber
 
         }
 
-        public static void printString(string y)
+        public static void printString(string y) //neat method created to simulate the computer comunicating with the user
         {
             for(int i =0; i < y.Length;i++)
             {
