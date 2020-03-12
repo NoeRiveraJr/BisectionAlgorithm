@@ -31,20 +31,19 @@ namespace GuessMyNumber
         }
         public string findHumanChoice(int nextMove)
         {
-
             switch (nextMove)
             {
                 case 1:
-                    this.newList.RemoveRange(this.length / 2, this.length/2-1);
+                    this.newList.RemoveRange(this.length / 2, this.length-(this.length/2));
                     this.length = this.newList.Count;
-                    this.checking = ($"Greater than it is. Now checking the numbers {this.newList[0]} - {this.newList[this.length-1]}\n");
+                    this.checking = ($"Greater than it is. Now checking the numbers: {this.newList[0]} - {this.newList[this.length-1]}\n");
                     this.computerGuess = this.newList[this.length / 2];
                     this.numOfGuesses++;
                     break;
                 case 2:
                     this.newList.RemoveRange(0, this.length / 2);
                     this.length = this.newList.Count;
-                    this.checking = ($"Less than it is. Now checking the numbers {this.newList[0]} - {this.newList[this.length-1]}\n");
+                    this.checking = ($"Less than it is. Now checking the numbers: {this.newList[0]} - {this.newList[this.length-1]}\n");
                     this.computerGuess = this.newList[this.length / 2];
                     this.numOfGuesses++;
                     break;
